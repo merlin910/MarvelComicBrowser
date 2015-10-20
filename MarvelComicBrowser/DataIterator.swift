@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ObjectMapper
 
 class DataIterator {
     
@@ -20,38 +21,20 @@ class DataIterator {
         self.page = 0
     }
     
-    
-    
-    func getCharacterPage(page: Int, completionHandler:(pageOfData: [Character]?) -> Void) {
-        RestProvider().makeCharacterRequest(.GET, request: request, parameters: parameters) { (object) -> Void in
-            completionHandler(pageOfData: object.data?.results)
-        }
-    }
-    
-    func nextCharacterPage(completionHandler: (pageOfData: [Character]?) -> Void) {
+    func nextPage<T: Mappable>(type: T.Type, completionHandler: (pageOfData: [T]?) -> Void) {
         self.parameters["offset"] = String(20 * self.page)
         self.page++
         
-        getCharacterPage(self.page) { (pageOfData) -> Void in
+        getPage(self.page, type: T.self) { (pageOfData) -> Void in
             completionHandler(pageOfData: pageOfData)
         }
     }
     
     
-    
-    
-    func getComicPage(page: Int, completionHandler:(pageOfData: [Comic]?) -> Void) {
-        RestProvider().makeComicRequest(.GET, request: request, parameters: parameters) { (object) -> Void in
+    func getPage<T: Mappable>(page: Int, type: T.Type, completionHandler:(pageOfData: [T]?) -> Void) {
+        RestProvider().makeRequest(.GET, request: request, parameters: parameters, type: MarvelDataWrapper<DataContainer<T>>.self) { (object) -> Void in
             completionHandler(pageOfData: object.data?.results)
         }
     }
     
-    func nextComicPage(completionHandler: (pageOfData: [Comic]?) -> Void) {
-        self.parameters["offset"] = String(20 * self.page)
-        self.page++
-        
-        getComicPage(self.page) { (pageOfData) -> Void in
-            completionHandler(pageOfData: pageOfData)
-        }
-    }
 }

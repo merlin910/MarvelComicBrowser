@@ -17,7 +17,7 @@ class ComicTableViewController: UITableViewController {
         super.viewDidLoad()
 
         self.dataFetcher = DataContainerStack().getComicData(["offset":"0"])
-        self.dataFetcher!.nextComicPage { (pageOfData) -> Void in
+        self.dataFetcher!.nextPage(Comic.self) { (pageOfData) -> Void in
             if let pageOfData = pageOfData {
                 self.objects += pageOfData
                 self.tableView.reloadData()
@@ -102,7 +102,7 @@ class ComicTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row + 1 == self.objects.count && self.objects.count >= 20  {
-            self.dataFetcher!.nextComicPage { (pageOfData) -> Void in
+            self.dataFetcher!.nextPage(Comic.self) { (pageOfData) -> Void in
                 if let pageOfData = pageOfData {
                     self.objects += pageOfData
                     self.tableView.reloadData()

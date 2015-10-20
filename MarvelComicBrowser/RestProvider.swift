@@ -13,31 +13,14 @@ import ObjectMapper
 
 public class RestProvider {
     
-    func makeCharacterRequest(method: HTTPMethod, request: String, parameters: [String: AnyObject]?, requestComplete:(object:MarvelDataWrapper<DataContainer<Character>>) -> Void ) {
-        Alamofire.request(alamoMethodForHTTPMethod(method), request, parameters: parameters)
-            .responseObject { (response: MarvelDataWrapper<DataContainer<Character>>?, error:ErrorType?) in
-                if let results = response {
-                    requestComplete(object: results);
-                }
-        }
-    }
-    
-    func makeComicRequest(method: HTTPMethod, request: String, parameters: [String: AnyObject]?, requestComplete:(object:MarvelDataWrapper<DataContainer<Comic>>) -> Void ) {
-        Alamofire.request(alamoMethodForHTTPMethod(method), request, parameters: parameters)
-            .responseObject { (response: MarvelDataWrapper<DataContainer<Comic>>?, error:ErrorType?) in
-                if let results = response {
-                    requestComplete(object: results);
-                }
-        }
-    }
-    
-    func makeRequest<U>(method: HTTPMethod, request: String, parameters: [String: AnyObject]?, requestComplete:(object:U) -> Void) {
-        typealias alias = U
-        Alamofire.request(alamoMethodForHTTPMethod(method), request, parameters: parameters)
-            .responseObject { (response:alias, error:ErrorType?) -> Void in
-//            if let 
-            }
+    func makeRequest<T: Mappable>(method: HTTPMethod, request: String, parameters: [String: AnyObject]?, type: T.Type, requestComplete:(object:T) -> Void) {
 
+        Alamofire.request(alamoMethodForHTTPMethod(method), request, parameters: parameters)
+            .responseObject { (response: T?, error: ErrorType?) -> Void in
+                if let results = response {
+                    requestComplete(object: results);
+                }
+            }
     }
     
     
