@@ -24,8 +24,9 @@ class MasterViewController: UITableViewController {
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
         
-        self.dataFetcher = DataContainerStack().getCharacterData(["offset":"0"])
-        self.dataFetcher!.nextCharacterPage { (pageOfData) -> Void in
+        
+        self.dataFetcher = DataContainerStack<Character>().getCharacterData(["offset":"0"])
+        self.dataFetcher!.nextPage(Character.self) { (pageOfData) -> Void in
             if let pageOfData = pageOfData {
                 self.objects += pageOfData
                 self.tableView.reloadData()
@@ -87,7 +88,7 @@ class MasterViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row + 1 == self.objects.count && self.objects.count >= 20  {
-            self.dataFetcher!.nextCharacterPage { (pageOfData) -> Void in
+            self.dataFetcher!.nextPage(Character.self) { (pageOfData) -> Void in
                 if let pageOfData = pageOfData {
                     self.objects += pageOfData
                     self.tableView.reloadData()

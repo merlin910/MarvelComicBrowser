@@ -16,6 +16,7 @@ struct DataContainer<T : Mappable> : Mappable {
     var count: Int?
     var results :[T]?
     
+    init() {}
     init?(_ map: Map) {
         
     }
