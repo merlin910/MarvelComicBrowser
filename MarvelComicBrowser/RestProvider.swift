@@ -32,9 +32,9 @@ public class RestProvider {
     }
     
     func makeRequest<U>(method: HTTPMethod, request: String, parameters: [String: AnyObject]?, requestComplete:(object:U) -> Void) {
-
+        typealias alias = U
         Alamofire.request(alamoMethodForHTTPMethod(method), request, parameters: parameters)
-            .responseObject { (response:U, error:ErrorType?) -> Void in
+            .responseObject { (response:alias, error:ErrorType?) -> Void in
 //            if let 
             }
 
