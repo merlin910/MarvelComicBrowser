@@ -40,6 +40,7 @@ struct Comic : Mappable {
 //    var characters : CharacterList?
 //    var stories : StoryList?
 //    var events : EventList?
+    init(){}
     
     init?(_ map: Map) { }
     

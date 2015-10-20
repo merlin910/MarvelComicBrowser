@@ -23,6 +23,10 @@ class MarvelDataWrapper<T : Mappable> : Mappable {
 
     }
     
+    init () {
+        
+    }
+    
     func mapping(map: Map) {
         code <- map["code"]
         status <- map["status"]

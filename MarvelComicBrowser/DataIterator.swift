@@ -7,9 +7,6 @@
 //
 
 import Foundation
-import Alamofire
-import AlamofireObjectMapper
-import ObjectMapper
 
 class DataIterator {
     
@@ -24,21 +21,37 @@ class DataIterator {
     }
     
     
-    func getPage(page: Int, completionHandler:(pageOfData: [Character]?) -> Void) {
-        Alamofire.request(.GET, request, parameters: parameters)
-            .responseObject { (response: MarvelDataWrapper<DataContainer<Character>>?, error:ErrorType?) in
-                if let results = response {
-                    completionHandler(pageOfData: results.data?.results);
-                }
+    
+    func getCharacterPage(page: Int, completionHandler:(pageOfData: [Character]?) -> Void) {
+        RestProvider().makeCharacterRequest(.GET, request: request, parameters: parameters) { (object) -> Void in
+            completionHandler(pageOfData: object.data?.results)
         }
     }
     
-    func nextPage(completionHandler: (pageOfData: [Character]?) -> Void) {
+    func nextCharacterPage(completionHandler: (pageOfData: [Character]?) -> Void) {
         self.parameters["offset"] = String(20 * self.page)
         self.page++
         
-        getPage(self.page) { (pageOfData) -> Void in
+        getCharacterPage(self.page) { (pageOfData) -> Void in
             completionHandler(pageOfData: pageOfData)
         }
-    }    
+    }
+    
+    
+    
+    
+    func getComicPage(page: Int, completionHandler:(pageOfData: [Comic]?) -> Void) {
+        RestProvider().makeComicRequest(.GET, request: request, parameters: parameters) { (object) -> Void in
+            completionHandler(pageOfData: object.data?.results)
+        }
+    }
+    
+    func nextComicPage(completionHandler: (pageOfData: [Comic]?) -> Void) {
+        self.parameters["offset"] = String(20 * self.page)
+        self.page++
+        
+        getComicPage(self.page) { (pageOfData) -> Void in
+            completionHandler(pageOfData: pageOfData)
+        }
+    }
 }

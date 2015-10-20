@@ -37,3 +37,4 @@ struct Character : Mappable {
         series <- map["series"]
     }
 }
+
