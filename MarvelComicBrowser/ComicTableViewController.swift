@@ -11,13 +11,13 @@ import UIKit
 class ComicTableViewController: UITableViewController {
     
     var objects = [Comic]()
-    var dataFetcher: DataIterator?
+    var dataFetcher: DataIterator<Comic>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.dataFetcher = DataContainerStack().getComicData(["offset":"0"])
-        self.dataFetcher!.nextPage(Comic.self) { (pageOfData) -> Void in
+        self.dataFetcher!.nextPage() { (pageOfData) -> Void in
             if let pageOfData = pageOfData {
                 self.objects += pageOfData
                 self.tableView.reloadData()
@@ -102,7 +102,7 @@ class ComicTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row + 1 == self.objects.count && self.objects.count >= 20  {
-            self.dataFetcher!.nextPage(Comic.self) { (pageOfData) -> Void in
+            self.dataFetcher!.nextPage() { (pageOfData) -> Void in
                 if let pageOfData = pageOfData {
                     self.objects += pageOfData
                     self.tableView.reloadData()

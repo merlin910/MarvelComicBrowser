@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class DataIterator {
+class DataIterator<T: Mappable> {
     
     var request: String
     var parameters = [String: AnyObject]()
@@ -21,7 +21,7 @@ class DataIterator {
         self.page = 0
     }
     
-    func nextPage<T: Mappable>(type: T.Type, completionHandler: (pageOfData: [T]?) -> Void) {
+    func nextPage(completionHandler: (pageOfData: [T]?) -> Void) {
         self.parameters["offset"] = String(20 * self.page)
         self.page++
         
