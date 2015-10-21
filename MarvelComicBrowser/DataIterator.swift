@@ -30,9 +30,9 @@ class DataIterator {
         }
     }
     
-    
+
     func getPage<T: Mappable>(page: Int, type: T.Type, completionHandler:(pageOfData: [T]?) -> Void) {
-        RestProvider().makeRequest(.GET, request: request, parameters: parameters, type: MarvelDataWrapper<DataContainer<T>>.self) { (object) -> Void in
+        RestProvider<MarvelDataWrapper<DataContainer<T>>>().execute(.GET, request: request, parameters: parameters) { (object) -> Void in
             completionHandler(pageOfData: object.data?.results)
         }
     }

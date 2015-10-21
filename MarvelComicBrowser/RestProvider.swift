@@ -11,30 +11,31 @@ import Alamofire
 import AlamofireObjectMapper
 import ObjectMapper
 
-public class RestProvider {
-    
-    func makeRequest<T: Mappable>(method: HTTPMethod, request: String, parameters: [String: AnyObject]?, type: T.Type, requestComplete:(object:T) -> Void) {
 
+public enum HTTPMethod : String {
+    case OPTIONS
+    case GET
+    case HEAD
+    case POST
+    case PUT
+    case PATCH
+    case DELETE
+    case TRACE
+    case CONNECT
+}
+
+public class RestProvider<T: Mappable> {
+    
+    func execute(method: HTTPMethod, request: String, parameters: [String: AnyObject]?, requestComplete:(object:T) -> Void) {
+        
         Alamofire.request(alamoMethodForHTTPMethod(method), request, parameters: parameters)
             .responseObject { (response: T?, error: ErrorType?) -> Void in
                 if let results = response {
                     requestComplete(object: results);
                 }
-            }
+        }
     }
     
-    
-    public enum HTTPMethod : String {
-        case OPTIONS
-        case GET
-        case HEAD
-        case POST
-        case PUT
-        case PATCH
-        case DELETE
-        case TRACE
-        case CONNECT
-    }
     
     private func alamoMethodForHTTPMethod(method: HTTPMethod) -> Alamofire.Method {
         switch method {
