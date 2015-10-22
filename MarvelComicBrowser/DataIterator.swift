@@ -25,13 +25,13 @@ class DataIterator<T: Mappable> {
         self.parameters["offset"] = String(20 * self.page)
         self.page++
         
-        getPage(self.page, type: T.self) { (pageOfData) -> Void in
+        getPage(self.page) { (pageOfData) -> Void in
             completionHandler(pageOfData: pageOfData)
         }
     }
     
-
-    func getPage<T: Mappable>(page: Int, type: T.Type, completionHandler:(pageOfData: [T]?) -> Void) {
+    
+    func getPage<T: Mappable>(page: Int, completionHandler:(pageOfData: [T]?) -> Void) {
         RestProvider<MarvelDataWrapper<DataContainer<T>>>().execute(.GET, request: request, parameters: parameters) { (object) -> Void in
             completionHandler(pageOfData: object.data?.results)
         }
