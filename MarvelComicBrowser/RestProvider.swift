@@ -36,6 +36,12 @@ public class RestProvider<T: Mappable> {
         }
     }
     
+    func execute(method: HTTPMethod, request: String, parameters: [String: AnyObject]?) -> Request {
+        return Request(Alamofire.request(alamoMethodForHTTPMethod(method), request, parameters: parameters))
+    }
+    
+
+    
     
     private func alamoMethodForHTTPMethod(method: HTTPMethod) -> Alamofire.Method {
         switch method {
