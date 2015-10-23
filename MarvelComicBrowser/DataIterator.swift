@@ -39,6 +39,9 @@ class DataIterator<T: Mappable> {
                 completionHandler(pageOfData: results)
             }
         }
+        .responseData { (object) -> Void in
+            print("Got data")
+        }
     }
     
 }

@@ -18,13 +18,20 @@ public class Request {
     }
     
     public func responseObject<T: Mappable>(completionHandler: (object: T) -> Void) -> Self {
-        
-            alamofireRequest.responseObject { (response: T?, error: ErrorType?) -> Void in
-                if let results = response {
-                    completionHandler(object: results);
-                }
+        alamofireRequest.responseObject { (response: T?, error: ErrorType?) -> Void in
+            if let results = response {
+                completionHandler(object: results);
+            }
         }
-        
+        return self
+    }
+    
+    public func responseData(completionHandler: (object: NSData) -> Void) -> Self {
+        alamofireRequest.response { (request, httpResponse, data, error) -> Void in
+            if let result = data {
+                completionHandler(object: result)
+            }
+        }
         return self
     }
 }
