@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/ImageLoader-Swift.h</key>
 		<data>
-		+EOE5Dx7SVuNzSfPCOJznFWTkXE=
+		KMp1aH8rT+kKsDXljR3gqAXlIWw=
 		</data>
 		<key>Headers/ImageLoader.h</key>
 		<data>
@@ -14,23 +14,23 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Ct4lVDQz6DIScxjtAX/0YXxjLjI=
+		LgzqZXwfE/EU70GPBjWdLayc2B4=
 		</data>
 		<key>Modules/ImageLoader.swiftmodule/arm.swiftdoc</key>
 		<data>
-		8Z8MwtjcF1GG/6Q1SQ1LhKHULrI=
+		Pe6OI0VM5nfxmKa0HMbQYXhfneA=
 		</data>
 		<key>Modules/ImageLoader.swiftmodule/arm.swiftmodule</key>
 		<data>
-		UDitrCQMvK5juC9U+a7xwvMFQ+Q=
+		WhXggXB6JdZ/R1N2qh9y0+PCGus=
 		</data>
 		<key>Modules/ImageLoader.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		9qli5ZSOHejahtg+YyEe16EeFAU=
+		zm7dFelH3Th3re0gqcHUcYRxcjM=
 		</data>
 		<key>Modules/ImageLoader.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		6ggDPTltZBKw/1QS2ylvR8ubMNw=
+		ftkiT5+BS8UqRXPFyb8MMWFbl3E=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -41,7 +41,7 @@
 	<dict>
 		<key>Headers/ImageLoader-Swift.h</key>
 		<data>
-		+EOE5Dx7SVuNzSfPCOJznFWTkXE=
+		KMp1aH8rT+kKsDXljR3gqAXlIWw=
 		</data>
 		<key>Headers/ImageLoader.h</key>
 		<data>
@@ -49,19 +49,19 @@
 		</data>
 		<key>Modules/ImageLoader.swiftmodule/arm.swiftdoc</key>
 		<data>
-		8Z8MwtjcF1GG/6Q1SQ1LhKHULrI=
+		Pe6OI0VM5nfxmKa0HMbQYXhfneA=
 		</data>
 		<key>Modules/ImageLoader.swiftmodule/arm.swiftmodule</key>
 		<data>
-		UDitrCQMvK5juC9U+a7xwvMFQ+Q=
+		WhXggXB6JdZ/R1N2qh9y0+PCGus=
 		</data>
 		<key>Modules/ImageLoader.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		9qli5ZSOHejahtg+YyEe16EeFAU=
+		zm7dFelH3Th3re0gqcHUcYRxcjM=
 		</data>
 		<key>Modules/ImageLoader.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		6ggDPTltZBKw/1QS2ylvR8ubMNw=
+		ftkiT5+BS8UqRXPFyb8MMWFbl3E=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
