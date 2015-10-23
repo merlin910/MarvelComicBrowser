@@ -33,12 +33,11 @@ class DataIterator<T: Mappable> {
     }
     
     func getPage<T: Mappable>(page: Int, completionHandler:(pageOfData: [T]?) -> Void) {
-        RestProvider<MarvelDataWrapper<DataContainer<T>>>().execute(.GET, request: request, parameters: parameters)
+        RestProvider().execute(.GET, request: request, parameters: parameters)
         .responseObject() { (object:MarvelDataWrapper<DataContainer<T>>) -> Void in
             if let results = object.data?.results {
                 completionHandler(pageOfData: results)
             }
-            print("Once")
         }
     }
     

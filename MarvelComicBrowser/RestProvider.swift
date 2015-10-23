@@ -24,17 +24,7 @@ public enum HTTPMethod : String {
     case CONNECT
 }
 
-public class RestProvider<T: Mappable> {
-    
-    func execute(method: HTTPMethod, request: String, parameters: [String: AnyObject]?, requestComplete:(object:T) -> Void) {
-        
-        Alamofire.request(alamoMethodForHTTPMethod(method), request, parameters: parameters)
-            .responseObject { (response: T?, error: ErrorType?) -> Void in
-                if let results = response {
-                    requestComplete(object: results);
-                }
-        }
-    }
+public class RestProvider {
     
     func execute(method: HTTPMethod, request: String, parameters: [String: AnyObject]?) -> Request {
         return Request(Alamofire.request(alamoMethodForHTTPMethod(method), request, parameters: parameters))
