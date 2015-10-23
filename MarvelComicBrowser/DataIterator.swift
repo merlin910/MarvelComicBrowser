@@ -39,7 +39,7 @@ class DataIterator<T: Mappable> {
                 completionHandler(pageOfData: results)
             }
         }
-        .responseData { (object) -> Void in
+            .responseData { (object:Response<NSData, NSError>) -> Void in
             print("Got data")
         }
     }
