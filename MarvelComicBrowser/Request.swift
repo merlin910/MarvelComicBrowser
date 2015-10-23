@@ -26,15 +26,25 @@ public class Request {
         return self
     }
     
-    public func responseData(completionHandler: (object: NSData) -> Void) -> Self {
-        alamofireRequest.responseData { (response:Response<NSData, NSError>) -> Void in
-            switch response.result {
-            case .Success:
-                completionHandler(object: response.data!)
-            case .Failure(let error):
-                print(error)
-            }
+    public func responseData(completionHandler: (object: Response<NSData, NSError>) -> Void) -> Self {
+        alamofireRequest.responseData { (response:Alamofire.Response<NSData, NSError>) -> Void in
+                completionHandler(object: Response<NSData, NSError>(request: self.alamofireRequest, response: response.response, data: response.data, error: response.result.error))
         }
         return self
+    }
+}
+
+
+public struct Response<Value, Error: ErrorType> {
+    public let request: Alamofire.Request?
+    public let response: NSHTTPURLResponse?
+    public let data: Value?
+    public let error: Error?
+    
+    public init(request: Alamofire.Request?, response: NSHTTPURLResponse?, data: Value?, error: Error?) {
+        self.request = request
+        self.response = response
+        self.data = data
+        self.error = error
     }
 }
