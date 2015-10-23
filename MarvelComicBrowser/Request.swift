@@ -27,12 +27,14 @@ public class Request {
     }
     
     public func responseData(completionHandler: (object: NSData) -> Void) -> Self {
-        alamofireRequest.response { (request, httpResponse, data, error) -> Void in
-            if let result = data {
-                completionHandler(object: result)
+        alamofireRequest.responseData { (response:Response<NSData, NSError>) -> Void in
+            switch response.result {
+            case .Success:
+                completionHandler(object: response.data!)
+            case .Failure(let error):
+                print(error)
             }
         }
         return self
     }
 }
-
