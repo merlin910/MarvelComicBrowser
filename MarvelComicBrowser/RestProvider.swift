@@ -27,7 +27,7 @@ public enum HTTPMethod : String {
 public class RestProvider {
     
     func execute(method: HTTPMethod, request: String, parameters: [String: AnyObject]?) -> Request {
-        return Request(Alamofire.request(alamoMethodForHTTPMethod(method), request, parameters: parameters))
+        return Request(Alamofire.request(alamoMethodForHTTPMethod(method), request, parameters: parameters).validate())
     }
     
 

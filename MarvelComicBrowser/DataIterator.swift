@@ -34,8 +34,8 @@ class DataIterator<T: Mappable> {
     
     func getPage<T: Mappable>(page: Int, completionHandler:(pageOfData: [T]?) -> Void) {
         RestProvider().execute(.GET, request: request, parameters: parameters)
-        .responseObject() { (object:MarvelDataWrapper<DataContainer<T>>) -> Void in
-            if let results = object.data?.results {
+        .responseObject() { (object:Response<MarvelDataWrapper<DataContainer<T>>, NSError>) -> Void in
+            if let results = object.data?.data?.results {
                 completionHandler(pageOfData: results)
             }
         }

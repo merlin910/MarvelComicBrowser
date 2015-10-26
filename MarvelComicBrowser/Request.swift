@@ -17,11 +17,9 @@ public class Request {
         alamofireRequest = request
     }
     
-    public func responseObject<T: Mappable>(completionHandler: (object: T) -> Void) -> Self {
-        alamofireRequest.responseObject { (response: T?, error: ErrorType?) -> Void in
-            if let results = response {
-                completionHandler(object: results);
-            }
+    public func responseObject<T: Mappable>(completionHandler: (object: Response<T, NSError>) -> Void) -> Self {
+        alamofireRequest.responseObject { (request: NSURLRequest, response: NSHTTPURLResponse?, object: T?, anyobject: AnyObject?, error: ErrorType?) -> Void in
+            completionHandler(object: Response(request: self.alamofireRequest, response: response, data: object, error: error as? NSError))
         }
         return self
     }
@@ -35,13 +33,13 @@ public class Request {
 }
 
 
-public struct Response<Value, Error: ErrorType> {
+public struct Response<Value, U: ErrorType> {
     public let request: Alamofire.Request?
     public let response: NSHTTPURLResponse?
     public let data: Value?
-    public let error: Error?
+    public let error: U?
     
-    public init(request: Alamofire.Request?, response: NSHTTPURLResponse?, data: Value?, error: Error?) {
+    public init(request: Alamofire.Request?, response: NSHTTPURLResponse?, data: Value?, error: U?) {
         self.request = request
         self.response = response
         self.data = data
