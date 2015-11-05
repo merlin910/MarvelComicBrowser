@@ -28,8 +28,6 @@ class DataIterator<T: Mappable> {
         getPage(self.page) { (pageOfData) -> Void in
             completionHandler(pageOfData: pageOfData)
         }
-
-    
     }
     
     func getPage<T: Mappable>(page: Int, completionHandler:(pageOfData: [T]?) -> Void) {

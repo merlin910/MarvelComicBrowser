@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E30F3A601BD68040001E02E9 /* ComicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30F3A5F1BD68040001E02E9 /* ComicTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		E334ED761BBECE480060E51D /* ComicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E334ED751BBECE480060E51D /* ComicCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		E334ED791BBF15DC0060E51D /* ComicCollectionStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E334ED781BBF15DC0060E51D /* ComicCollectionStack.swift */; settings = {ASSET_TAGS = (); }; };
-		E38DFE541BBDABFD00AAFD78 /* DataIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38DFE531BBDABFD00AAFD78 /* DataIterator.swift */; settings = {ASSET_TAGS = (); }; };
-		E3AC67561BD93FD2005D4F2C /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AC67551BD93FD2005D4F2C /* Request.swift */; settings = {ASSET_TAGS = (); }; };
+		E30F3A601BD68040001E02E9 /* ComicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30F3A5F1BD68040001E02E9 /* ComicTableViewController.swift */; };
+		E334ED761BBECE480060E51D /* ComicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E334ED751BBECE480060E51D /* ComicCollectionViewCell.swift */; };
+		E38DFE541BBDABFD00AAFD78 /* DataIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38DFE531BBDABFD00AAFD78 /* DataIterator.swift */; };
+		E3AC67561BD93FD2005D4F2C /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AC67551BD93FD2005D4F2C /* Request.swift */; };
 		E3BAEB781BB9D225000B9503 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BAEB771BB9D225000B9503 /* AppDelegate.swift */; };
 		E3BAEB7A1BB9D225000B9503 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BAEB791BB9D225000B9503 /* MasterViewController.swift */; };
 		E3BAEB7C1BB9D225000B9503 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BAEB7B1BB9D225000B9503 /* DetailViewController.swift */; };
@@ -20,33 +19,33 @@
 		E3BAEB841BB9D225000B9503 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3BAEB821BB9D225000B9503 /* LaunchScreen.storyboard */; };
 		E3BAEB8F1BB9D225000B9503 /* MarvelComicBrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BAEB8E1BB9D225000B9503 /* MarvelComicBrowserTests.swift */; };
 		E3BAEB9A1BB9D225000B9503 /* MarvelComicBrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BAEB991BB9D225000B9503 /* MarvelComicBrowserUITests.swift */; };
-		E3BAEBA81BB9E3E0000B9503 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = E3BAEBA71BB9E3E0000B9503 /* Cartfile */; settings = {ASSET_TAGS = (); }; };
+		E3BAEBA81BB9E3E0000B9503 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = E3BAEBA71BB9E3E0000B9503 /* Cartfile */; };
 		E3BAEBBE1BBAD012000B9503 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E3BAEBBA1BBACED5000B9503 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E3BAEBC01BBAD03B000B9503 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3BAEBBA1BBACED5000B9503 /* Alamofire.framework */; };
 		E3D5A3391BBB0DF800027841 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3BAEBD01BBAFADC000B9503 /* ObjectMapper.framework */; };
 		E3D5A33A1BBB0DF800027841 /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E3BAEBD01BBAFADC000B9503 /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E3D5A33D1BBB1EFA00027841 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D5A33B1BBB1EAE00027841 /* AlamofireObjectMapper.framework */; };
 		E3D5A33E1BBB1EFA00027841 /* AlamofireObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E3D5A33B1BBB1EAE00027841 /* AlamofireObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E3D5A3421BBB363700027841 /* MavelDataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3411BBB363700027841 /* MavelDataWrapper.swift */; settings = {ASSET_TAGS = (); }; };
-		E3D5A3441BBC2ADB00027841 /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3431BBC2ADB00027841 /* DataContainer.swift */; settings = {ASSET_TAGS = (); }; };
-		E3D5A3461BBC304400027841 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3451BBC304400027841 /* Character.swift */; settings = {ASSET_TAGS = (); }; };
-		E3D5A34A1BBC35C500027841 /* MarvelImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3491BBC35C500027841 /* MarvelImage.swift */; settings = {ASSET_TAGS = (); }; };
-		E3D5A34C1BBC39B800027841 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A34B1BBC39B800027841 /* Comic.swift */; settings = {ASSET_TAGS = (); }; };
-		E3D5A3521BBC42C200027841 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3511BBC42C200027841 /* URL.swift */; settings = {ASSET_TAGS = (); }; };
-		E3D5A3541BBC459C00027841 /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3531BBC459C00027841 /* Series.swift */; settings = {ASSET_TAGS = (); }; };
-		E3D5A3561BBC498C00027841 /* ComicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3551BBC498C00027841 /* ComicList.swift */; settings = {ASSET_TAGS = (); }; };
-		E3D5A3581BBC5A4000027841 /* ComicSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3571BBC5A4000027841 /* ComicSummary.swift */; settings = {ASSET_TAGS = (); }; };
-		E3D5A35A1BBC5B4E00027841 /* MarvelTextObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3591BBC5B4E00027841 /* MarvelTextObject.swift */; settings = {ASSET_TAGS = (); }; };
-		E3D5A35C1BBC5BB600027841 /* ComicDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A35B1BBC5BB600027841 /* ComicDate.swift */; settings = {ASSET_TAGS = (); }; };
-		E3D5A35E1BBC5C2D00027841 /* ComicPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A35D1BBC5C2D00027841 /* ComicPrice.swift */; settings = {ASSET_TAGS = (); }; };
-		E3D5A3601BBC5D7A00027841 /* Creator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A35F1BBC5D7A00027841 /* Creator.swift */; settings = {ASSET_TAGS = (); }; };
-		E3D5A3621BBC5F2F00027841 /* CharacterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3611BBC5F2F00027841 /* CharacterList.swift */; settings = {ASSET_TAGS = (); }; };
-		E3D5A3641BBC615500027841 /* Stories.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3631BBC615500027841 /* Stories.swift */; settings = {ASSET_TAGS = (); }; };
-		E3D5A3661BBC623900027841 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3651BBC623900027841 /* Events.swift */; settings = {ASSET_TAGS = (); }; };
-		E3D5A3691BBC691100027841 /* DataContainerStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3681BBC691100027841 /* DataContainerStack.swift */; settings = {ASSET_TAGS = (); }; };
+		E3D5A3421BBB363700027841 /* MavelDataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3411BBB363700027841 /* MavelDataWrapper.swift */; };
+		E3D5A3441BBC2ADB00027841 /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3431BBC2ADB00027841 /* DataContainer.swift */; };
+		E3D5A3461BBC304400027841 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3451BBC304400027841 /* Character.swift */; };
+		E3D5A34A1BBC35C500027841 /* MarvelImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3491BBC35C500027841 /* MarvelImage.swift */; };
+		E3D5A34C1BBC39B800027841 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A34B1BBC39B800027841 /* Comic.swift */; };
+		E3D5A3521BBC42C200027841 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3511BBC42C200027841 /* URL.swift */; };
+		E3D5A3541BBC459C00027841 /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3531BBC459C00027841 /* Series.swift */; };
+		E3D5A3561BBC498C00027841 /* ComicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3551BBC498C00027841 /* ComicList.swift */; };
+		E3D5A3581BBC5A4000027841 /* ComicSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3571BBC5A4000027841 /* ComicSummary.swift */; };
+		E3D5A35A1BBC5B4E00027841 /* MarvelTextObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3591BBC5B4E00027841 /* MarvelTextObject.swift */; };
+		E3D5A35C1BBC5BB600027841 /* ComicDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A35B1BBC5BB600027841 /* ComicDate.swift */; };
+		E3D5A35E1BBC5C2D00027841 /* ComicPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A35D1BBC5C2D00027841 /* ComicPrice.swift */; };
+		E3D5A3601BBC5D7A00027841 /* Creator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A35F1BBC5D7A00027841 /* Creator.swift */; };
+		E3D5A3621BBC5F2F00027841 /* CharacterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3611BBC5F2F00027841 /* CharacterList.swift */; };
+		E3D5A3641BBC615500027841 /* Stories.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3631BBC615500027841 /* Stories.swift */; };
+		E3D5A3661BBC623900027841 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3651BBC623900027841 /* Events.swift */; };
+		E3D5A3691BBC691100027841 /* DataContainerStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5A3681BBC691100027841 /* DataContainerStack.swift */; };
 		E3D5A36E1BBC6BC500027841 /* ImageLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D5A36C1BBC6BBA00027841 /* ImageLoader.framework */; };
 		E3D5A36F1BBC6BC500027841 /* ImageLoader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E3D5A36C1BBC6BBA00027841 /* ImageLoader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E3FEFB9B1BBDE9A9004348A8 /* RestProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FEFB9A1BBDE9A9004348A8 /* RestProvider.swift */; settings = {ASSET_TAGS = (); }; };
+		E3FEFB9B1BBDE9A9004348A8 /* RestProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FEFB9A1BBDE9A9004348A8 /* RestProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +85,6 @@
 /* Begin PBXFileReference section */
 		E30F3A5F1BD68040001E02E9 /* ComicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicTableViewController.swift; sourceTree = "<group>"; };
 		E334ED751BBECE480060E51D /* ComicCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicCollectionViewCell.swift; sourceTree = "<group>"; };
-		E334ED781BBF15DC0060E51D /* ComicCollectionStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicCollectionStack.swift; sourceTree = "<group>"; };
 		E38DFE531BBDABFD00AAFD78 /* DataIterator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataIterator.swift; sourceTree = "<group>"; };
 		E3AC67551BD93FD2005D4F2C /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		E3BAEB741BB9D225000B9503 /* MarvelComicBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelComicBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -305,7 +303,6 @@
 				E3D5A3681BBC691100027841 /* DataContainerStack.swift */,
 				E38DFE531BBDABFD00AAFD78 /* DataIterator.swift */,
 				E3FEFB9A1BBDE9A9004348A8 /* RestProvider.swift */,
-				E334ED781BBF15DC0060E51D /* ComicCollectionStack.swift */,
 				E3AC67551BD93FD2005D4F2C /* Request.swift */,
 			);
 			name = Services;
@@ -484,7 +481,6 @@
 				E3D5A3521BBC42C200027841 /* URL.swift in Sources */,
 				E3D5A35E1BBC5C2D00027841 /* ComicPrice.swift in Sources */,
 				E3D5A35C1BBC5BB600027841 /* ComicDate.swift in Sources */,
-				E334ED791BBF15DC0060E51D /* ComicCollectionStack.swift in Sources */,
 				E3D5A34A1BBC35C500027841 /* MarvelImage.swift in Sources */,
 				E3D5A3541BBC459C00027841 /* Series.swift in Sources */,
 				E3D5A3621BBC5F2F00027841 /* CharacterList.swift in Sources */,

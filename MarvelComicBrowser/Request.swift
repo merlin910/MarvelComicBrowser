@@ -18,8 +18,8 @@ public class Request {
     }
     
     public func responseObject<T: Mappable>(completionHandler: (object: Response<T, NSError>) -> Void) -> Self {
-        alamofireRequest.responseObject { (request: NSURLRequest, response: NSHTTPURLResponse?, object: T?, anyobject: AnyObject?, error: ErrorType?) -> Void in
-            completionHandler(object: Response(request: self.alamofireRequest, response: response, data: object, error: error as? NSError))
+        alamofireRequest.responseObject { (response:Alamofire.Response<T, NSError>) -> Void in
+            completionHandler(object: Response(request: self.alamofireRequest, response: response.response, data: response.result.value, error: response.result.error))
         }
         return self
     }
