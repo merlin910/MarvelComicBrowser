@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E30F3A601BD68040001E02E9 /* ComicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30F3A5F1BD68040001E02E9 /* ComicTableViewController.swift */; };
+		E32117F71BF63799009B24B1 /* ComicCollectionStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32117F61BF63799009B24B1 /* ComicCollectionStack.swift */; };
 		E334ED761BBECE480060E51D /* ComicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E334ED751BBECE480060E51D /* ComicCollectionViewCell.swift */; };
 		E38DFE541BBDABFD00AAFD78 /* DataIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38DFE531BBDABFD00AAFD78 /* DataIterator.swift */; };
 		E3AC67561BD93FD2005D4F2C /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AC67551BD93FD2005D4F2C /* Request.swift */; };
@@ -84,6 +85,7 @@
 
 /* Begin PBXFileReference section */
 		E30F3A5F1BD68040001E02E9 /* ComicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicTableViewController.swift; sourceTree = "<group>"; };
+		E32117F61BF63799009B24B1 /* ComicCollectionStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicCollectionStack.swift; sourceTree = "<group>"; };
 		E334ED751BBECE480060E51D /* ComicCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicCollectionViewCell.swift; sourceTree = "<group>"; };
 		E38DFE531BBDABFD00AAFD78 /* DataIterator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataIterator.swift; sourceTree = "<group>"; };
 		E3AC67551BD93FD2005D4F2C /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 		E3D5A3671BBC687900027841 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E32117F61BF63799009B24B1 /* ComicCollectionStack.swift */,
 				E3D5A3681BBC691100027841 /* DataContainerStack.swift */,
 				E38DFE531BBDABFD00AAFD78 /* DataIterator.swift */,
 				E3FEFB9A1BBDE9A9004348A8 /* RestProvider.swift */,
@@ -473,6 +476,7 @@
 				E3D5A3641BBC615500027841 /* Stories.swift in Sources */,
 				E3FEFB9B1BBDE9A9004348A8 /* RestProvider.swift in Sources */,
 				E3D5A3461BBC304400027841 /* Character.swift in Sources */,
+				E32117F71BF63799009B24B1 /* ComicCollectionStack.swift in Sources */,
 				E38DFE541BBDABFD00AAFD78 /* DataIterator.swift in Sources */,
 				E3D5A3581BBC5A4000027841 /* ComicSummary.swift in Sources */,
 				E3BAEB7A1BB9D225000B9503 /* MasterViewController.swift in Sources */,
