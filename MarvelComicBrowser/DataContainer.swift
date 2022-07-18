@@ -7,25 +7,11 @@
 //
 
 import Foundation
-import ObjectMapper
 
-struct DataContainer<T : Mappable> : Mappable {
+struct DataContainer<T: Codable>: Codable {
     var offset: Int?
     var limit: Int?
     var total: Int?
     var count: Int?
-    var results :[T]?
-    
-    init() {}
-    init?(_ map: Map) {
-        
-    }
-    
-    mutating func mapping(map: Map) {
-        offset <- map["offset"]
-        limit <- map["limit"]
-        total <- map["total"]
-        count <- map["count"]
-        results <- map["results"]
-    }
+    var results: [T]?
 }

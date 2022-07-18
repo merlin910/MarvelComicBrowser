@@ -7,45 +7,35 @@
 //
 
 import Foundation
-import ObjectMapper
 
-enum ImageSizeEnum : CustomStringConvertible {  // Swift 2.0; for < 2.0 use Printable
-    case Small
-    case Medium
-    case Large
-    case XLarge
-    case Fantastic
-    case Amazing
-    
-    var description : String {
+enum ImageSizeEnum: CustomStringConvertible {  // Swift 2.0; for < 2.0 use Printable
+    case small
+    case medium
+    case large
+    case xLarge
+    case fantastic
+    case amazing
+
+    var description: String {
         switch self {
             // Use Internationalization, as appropriate.
-        case .Small: return "standard_small"
-        case .Medium: return "standard_medium"
-        case .Large: return "standard_large"
-        case .XLarge: return "standard_xlarge"
-        case .Fantastic: return "portrait_fantastic"
-        case .Amazing: return "standard_amazing"
+        case .small: return "standard_small"
+        case .medium: return "standard_medium"
+        case .large: return "standard_large"
+        case .xLarge: return "standard_xlarge"
+        case .fantastic: return "portrait_fantastic"
+        case .amazing: return "standard_amazing"
         }
     }
 }
 
-struct MarvelImage : Mappable {
+struct MarvelImage: Codable {
     var path: String?
     var fileExtension: String?
-    
-    init?(_ map: Map) {
-        
-    }
-    
-    mutating func mapping(map: Map) {
-        path            <- map["path"]
-        fileExtension   <- map["extension"]
-    }
-    
+
     func fullPath(size: ImageSizeEnum) -> String? {
-        if let p = self.path, f = self.fileExtension {
-            return p + "/" + size.description + "." + f
+        if let path = path, let fileExtension = fileExtension {
+            return path + "/" + size.description + "." + fileExtension
         }
         return nil
     }

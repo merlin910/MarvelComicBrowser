@@ -8,8 +8,7 @@
 
 import Foundation
 
-
 struct URL {
-    var urlType : String?
-    var url : String?
+    var urlType: String?
+    var url: String?
 }

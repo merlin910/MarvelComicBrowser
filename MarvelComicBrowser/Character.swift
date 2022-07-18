@@ -7,34 +7,17 @@
 //
 
 import Foundation
-import ObjectMapper
 
-struct Character : Mappable {
+struct Character: Codable {
     var id: Int?
     var name: String?
-    var description : String?
-    var resourceURI : String?
-    var urls : [URL]?
-    var thumbnail : MarvelImage?
-    var comics : ComicList?
-    var stories : StoryList?
-    var events : EventList?
-    var series : SeriesList?
-    
-    init?(_ map: Map) {
-        
-    }
-    
-    mutating func mapping(map: Map) {
-        id  <- map["id"]
-        name   <- map["name"]
-        description <- map["description"]
-        resourceURI <- map["resourceURI"]
-        urls <- map["urls"]
-        thumbnail <- map["thumbnail"]
-        comics <- map["comics"]
-        stories <- map["stories"]
-        series <- map["series"]
-    }
+    var description: String?
+    var resourceURI: String?
+    var urls: [URL]?
+    var thumbnail: MarvelImage?
+    var comics: ComicList?
+    var stories: StoryList?
+    var events: EventList?
+    var series: SeriesList?
 }
 

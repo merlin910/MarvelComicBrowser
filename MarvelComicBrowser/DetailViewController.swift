@@ -14,7 +14,7 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var backgroundImageView: UIImageView!
-    
+
     var comics = [Comic]?()
 
     var detailItem: Character? {
@@ -35,7 +35,7 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
                 self.backgroundImageView?.load(imageURL)
             }
             if let request = detailItem?.comics?.collectionURI {
-                ComicCollectionStack().getComics(request, completionHandler: { (comics) -> Void in
+                ComicCollectionNetworkService().getComics(request, completionHandler: { (comics) -> Void in
                     if let comics = comics {
                         self.comics = comics
                         self.collectionView.reloadData()
@@ -57,39 +57,34 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
 
     //MARK: - Collection View
-    
+
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
-    
+
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let comicCount = detailItem?.comics?.items?.count {
             return comicCount
-        }
-        else {
+        } else {
             return 0
         }
     }
-    
+
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cellIdentifier = "ComicCollectionCell"
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! ComicCollectionViewCell
-        
-        
+
         if let comicName = self.detailItem?.comics?.items?[indexPath.row].name {
             cell.title.text = comicName
-        }
-        else {
+        } else {
             cell.title.text = "Unknown Title"
         }
-        
+
         if let imageURL = self.comics?[indexPath.row].thumbnail?.fullPath(ImageSizeEnum.Medium) {
             cell.imageView?.load(imageURL, placeholder: UIImage(named: "standard_medium"))
         }
-        
+
         return cell
     }
-    
-        
 }
 

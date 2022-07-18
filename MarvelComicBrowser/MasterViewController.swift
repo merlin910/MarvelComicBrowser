@@ -21,11 +21,10 @@ class MasterViewController: UITableViewController {
 
         if let split = self.splitViewController {
             let controllers = split.viewControllers
-            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+            self.detailViewController = (controllers[controllers.count - 1] as! UINavigationController).topViewController as? DetailViewController
         }
-        
-        
-        self.dataFetcher = DataContainerStack().getCharacterData(["offset":"0"])
+
+        self.dataFetcher = DataContainerStack().getCharacterData(["offset": "0"])
         self.dataFetcher!.nextPage() { (pageOfData) -> Void in
             if let pageOfData = pageOfData {
                 self.objects += pageOfData
@@ -43,7 +42,6 @@ class MasterViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
     // MARK: - Segues
 
@@ -74,7 +72,7 @@ class MasterViewController: UITableViewController {
 
         let object = objects[indexPath.row]
         cell.textLabel!.text = object.name
-        
+
         if let imageURL = object.thumbnail?.fullPath(ImageSizeEnum.Medium) {
             cell.imageView?.load(imageURL, placeholder: UIImage(named: "standard_medium"))
         }
@@ -85,9 +83,9 @@ class MasterViewController: UITableViewController {
         // Return false if you do not want the specified item to be editable.
         return false
     }
-    
+
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row + 1 == self.objects.count && self.objects.count >= 20  {
+        if indexPath.row + 1 == self.objects.count && self.objects.count >= 20 {
             self.dataFetcher!.nextPage() { (pageOfData) -> Void in
                 if let pageOfData = pageOfData {
                     self.objects += pageOfData

@@ -9,14 +9,14 @@
 import UIKit
 
 class ComicTableViewController: UITableViewController {
-    
+
     var objects = [Comic]()
     var dataFetcher: DataIterator<Comic>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.dataFetcher = DataContainerStack().getComicData(["offset":"0"])
+        self.dataFetcher = DataContainerStack().getComicData(["offset": "0"])
         self.dataFetcher!.nextPage() { (pageOfData) -> Void in
             if let pageOfData = pageOfData {
                 self.objects += pageOfData
@@ -41,19 +41,17 @@ class ComicTableViewController: UITableViewController {
         return objects.count
     }
 
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        
+
         let object = objects[indexPath.row]
         cell.textLabel!.text = object.title
-        
+
         if let imageURL = object.thumbnail?.fullPath(ImageSizeEnum.Medium) {
             cell.imageView?.load(imageURL, placeholder: UIImage(named: "standard_medium"))
         }
         return cell
     }
-
 
     /*
     // Override to support conditional editing of the table view.
@@ -99,9 +97,9 @@ class ComicTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
+
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row + 1 == self.objects.count && self.objects.count >= 20  {
+        if indexPath.row + 1 == self.objects.count && self.objects.count >= 20 {
             self.dataFetcher!.nextPage() { (pageOfData) -> Void in
                 if let pageOfData = pageOfData {
                     self.objects += pageOfData
@@ -110,5 +108,4 @@ class ComicTableViewController: UITableViewController {
             }
         }
     }
-
 }

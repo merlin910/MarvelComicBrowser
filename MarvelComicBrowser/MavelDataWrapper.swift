@@ -7,26 +7,23 @@
 //
 
 import Foundation
-import ObjectMapper
 
-class MarvelDataWrapper<T : Mappable> : Mappable {
-    
-    var code : Int?
-    var status : String?
-    var copyright : String?
-    var attributionText : String?
-    var attributionHTML : String?
-    var data : T?
-    var etag : String?
-    
+class MarvelDataWrapper<T: Codable>: Codable {
+
+    var code: Int?
+    var status: String?
+    var copyright: String?
+    var attributionText: String?
+    var attributionHTML: String?
+    var data: T?
+    var etag: String?
+
     required init(_ map: Map) {
+    }
 
+    init() {
     }
-    
-    init () {
-        
-    }
-    
+
     func mapping(map: Map) {
         code <- map["code"]
         status <- map["status"]

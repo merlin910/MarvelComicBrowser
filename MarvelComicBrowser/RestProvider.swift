@@ -11,48 +11,44 @@ import Alamofire
 import AlamofireObjectMapper
 import ObjectMapper
 
-
-public enum HTTPMethod : String {
-    case OPTIONS
-    case GET
-    case HEAD
-    case POST
-    case PUT
-    case PATCH
-    case DELETE
-    case TRACE
-    case CONNECT
+public enum HTTPMethod: String {
+    case options
+    case get
+    case head
+    case post
+    case put
+    case patch
+    case delete
+    case trace
+    case connect
 }
 
 public class RestProvider {
-    
+
     func execute(method: HTTPMethod, request: String, parameters: [String: AnyObject]?) -> Request {
         return Request(Alamofire.request(alamoMethodForHTTPMethod(method), request, parameters: parameters).validate())
     }
-    
 
-    
-    
     private func alamoMethodForHTTPMethod(method: HTTPMethod) -> Alamofire.Method {
         switch method {
-        case HTTPMethod.OPTIONS:
-            return .OPTIONS
-        case HTTPMethod.GET:
-            return .GET
-        case HTTPMethod.HEAD:
-            return .HEAD
-        case HTTPMethod.POST:
-            return .POST
-        case HTTPMethod.PUT:
-            return .PUT
-        case HTTPMethod.PATCH:
-            return .PATCH
-        case HTTPMethod.DELETE:
-            return .DELETE
-        case HTTPMethod.TRACE:
-            return .TRACE
-        case HTTPMethod.CONNECT:
-            return .CONNECT
+        case HTTPMethod.options:
+            return .options
+        case HTTPMethod.get:
+            return .get
+        case HTTPMethod.head:
+            return .head
+        case HTTPMethod.post:
+            return .post
+        case HTTPMethod.put:
+            return .put
+        case HTTPMethod.patch:
+            return .patch
+        case HTTPMethod.delete:
+            return .delete
+        case HTTPMethod.trace:
+            return .trace
+        case HTTPMethod.connect:
+            return .connect
         }
     }
 }

@@ -7,18 +7,8 @@
 //
 
 import Foundation
-import ObjectMapper
 
-struct ComicDate : Mappable {
-    var type : String?
-    var date : String?
-    
-    init?(_ map: Map) {
-    
-    }
-    
-    mutating func mapping(map: Map) {
-        type <- map["type"]
-        date <- map["date"]
-    }
+struct ComicDate: Codable {
+    var type: String?
+    var date: String?
 }

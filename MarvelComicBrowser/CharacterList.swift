@@ -7,39 +7,16 @@
 //
 
 import Foundation
-import ObjectMapper
 
-struct CharacterList : Mappable {
-    var available : Int?
-    var returned : Int?
-    var collectionURI : String?
-    var items : [CharacterSummary]?
-    
-    init?(_ map: Map) {
-        
-    }
-    
-    mutating func mapping(map: Map) {
-        available <- map["available"]
-        returned <- map["returned"]
-        collectionURI <- map["collectionURI"]
-        items <- map["items"]
-    }
+struct CharacterList: Codable {
+    var available: Int?
+    var returned: Int?
+    var collectionURI: String?
+    var items: [CharacterSummary]?
 }
 
-
-struct CharacterSummary : Mappable {
-    var resourceURI : String?
-    var name : String?
-    var role : String?
-    
-    init?(_ map: Map) {
-        
-    }
-    
-    mutating func mapping(map: Map) {
-        resourceURI <- map["resourceURI"]
-        name <- map["name"]
-        role <- map["role"]
-    }
+struct CharacterSummary: Codable {
+    var resourceURI: String?
+    var name: String?
+    var role: String?
 }

@@ -9,37 +9,36 @@
 import Foundation
 import ObjectMapper
 
-class DataIterator<T: Mappable> {
-    
+class DataIterator<T: Codable> {
+
     var request: String
     var parameters = [String: AnyObject]()
     var page: Int
-    
+
     init(request: String, parameters: [String: AnyObject]) {
         self.request = request
         self.parameters = parameters
         self.page = 0
     }
-    
+
     func nextPage(completionHandler: (pageOfData: [T]?) -> Void) {
         self.parameters["offset"] = String(20 * self.page)
         self.page++
-        
+
         getPage(self.page) { (pageOfData) -> Void in
             completionHandler(pageOfData: pageOfData)
         }
     }
-    
-    func getPage<T: Mappable>(page: Int, completionHandler:(pageOfData: [T]?) -> Void) {
+
+    func getPage<T: Codable>(page: Int, completionHandler: (pageOfData: [T]?) -> Void) {
         RestProvider().execute(.GET, request: request, parameters: parameters)
-        .responseObject() { (object:Response<MarvelDataWrapper<DataContainer<T>>, NSError>) -> Void in
-            if let results = object.data?.data?.results {
-                completionHandler(pageOfData: results)
-            }
-        }
-            .responseData { (object:Response<NSData, NSError>) -> Void in
-            print("Got data")
-        }
+                .responseObject() { (object: Response<MarvelDataWrapper<DataContainer<T>>, NSError>) -> Void in
+                    if let results = object.data?.data?.results {
+                        completionHandler(pageOfData: results)
+                    }
+                }
+                .responseData { (object: Response<NSData, NSError>) -> Void in
+                    print("Got data")
+                }
     }
-    
 }

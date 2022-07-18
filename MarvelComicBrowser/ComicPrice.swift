@@ -7,18 +7,8 @@
 //
 
 import Foundation
-import ObjectMapper
 
-struct ComicPrice : Mappable {
-    var type : String?
-    var price : Double?
-    
-    init?(_ map: Map) {
-        
-    }
-    
-    mutating func mapping(map: Map) {
-        type <- map["type"]
-        price <- map["price"]
-    }
+struct ComicPrice: Codable {
+    var type: String?
+    var price: Double?
 }

@@ -7,18 +7,8 @@
 //
 
 import Foundation
-import ObjectMapper
 
-struct ComicSummary : Mappable {
-    var resourceURI : String?
-    var name : String?
-    
-    init?(_ map: Map) {
-        
-    }
-    
-    mutating func mapping(map: Map) {
-        resourceURI <- map["resourceURI"]
-        name <- map["name"]
-    }
+struct ComicSummary: Codable {
+    var resourceURI: String?
+    var name: String?
 }
