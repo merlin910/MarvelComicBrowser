@@ -3,7 +3,7 @@
 //  MarvelComicBrowser
 //
 //  Created by Deric Kramer on 10/1/15.
-//  Copyright © 2015 ToolWatch. All rights reserved.
+//  Copyright © 2015 SingletonConsulting. All rights reserved.
 //
 
 import Foundation
@@ -11,22 +11,22 @@ import Foundation
 class DataIterator<T: Codable> {
 
     var request: String
-    var parameters = [String: AnyObject]()
+    var parameters = [String: String]()
     var page: Int
 
-    init(request: String, parameters: [String: AnyObject]) {
+    init(request: String, parameters: [String: String]) {
         self.request = request
         self.parameters = parameters
         self.page = 0
     }
 
     func nextPage(completionHandler: (_ pageOfData: [T]?) -> Void) {
-        self.parameters["offset"] = String(20 * self.page)
-        self.page += 1
-
-        getPage(self.page) { (pageOfData) -> Void in
-            completionHandler(pageOfData: pageOfData)
-        }
+//        self.parameters["offset"] = String(20 * page)
+//        self.page += 1
+//
+//        getPage(page) { (pageOfData) -> Void in
+//            completionHandler(pageOfData: pageOfData)
+//        }
     }
 
     func getPage<T: Codable>(page: Int, completionHandler: (_ pageOfData: [T]?) -> Void) {

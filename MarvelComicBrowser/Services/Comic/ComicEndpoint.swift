@@ -1,13 +1,13 @@
 //
 // Created by Deric Kramer on 7/19/22.
-// Copyright (c) 2022 ToolWatch. All rights reserved.
+// Copyright (c) 2022 SingletonConsulting. All rights reserved.
 //
 
 import Foundation
 
 enum ComicEndpoint {
     case comics
-    case comics(comicId: Int)
+    case comic(comicId: Int)
     case comicsCharacters(comicId: Int)
 }
 
@@ -16,7 +16,7 @@ extension ComicEndpoint: Endpoint {
         switch self {
         case .comics:
             return "comics"
-        case .comics(let comicId):
+        case .comic(let comicId):
             return "comics/\(comicId)"
         case .comicsCharacters(let comicId):
             return "comics/\(comicId)/characters"
@@ -25,7 +25,7 @@ extension ComicEndpoint: Endpoint {
 
     var method: HTTPMethod {
         switch self {
-        case .comics, .comics(let _), .comicsCharacters:
+        case .comics, .comic, .comicsCharacters:
             return .get
         }
     }
@@ -35,7 +35,7 @@ extension ComicEndpoint: Endpoint {
     }
 
     var body: [String: String]? {
-        fatalError("body has not been implemented")
+        [:]
     }
 
     var queryParameters: [String: String]? {

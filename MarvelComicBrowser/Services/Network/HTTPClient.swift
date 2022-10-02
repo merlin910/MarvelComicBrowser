@@ -12,13 +12,13 @@ protocol HTTPClient {
 class HTTPClientImplementation: HTTPClient {
     func sendRequest<T: Decodable>(endpoint: Endpoint) async throws -> T {
         do {
-            let (data, response) = try await performRequest(endpoint.request)
+            let (data, response) = try await performRequest(endpoint.asURLRequest)
             guard let response = response as? HTTPURLResponse else {
                 throw RequestError.noResponse
             }
             switch response.statusCode {
             case 200...299:
-                guard let decodedResponse = try? JSONDecoder().decode(responseModel, from: data) else {
+                guard let decodedResponse = try? JSONDecoder().decode(T.self, from: data) else {
                     throw RequestError.decode
                 }
                 return decodedResponse

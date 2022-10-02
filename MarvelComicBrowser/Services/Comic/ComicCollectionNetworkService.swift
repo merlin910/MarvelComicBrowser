@@ -3,7 +3,7 @@
 //  MarvelComicBrowser
 //
 //  Created by Deric Kramer on 10/2/15.
-//  Copyright © 2015 ToolWatch. All rights reserved.
+//  Copyright © 2015 SingletonConsulting. All rights reserved.
 //
 
 import Foundation
@@ -17,7 +17,7 @@ class ComicCollectionNetworkService {
     }
 
     func getComics() async throws -> [Comic] {
-        let comicsResponse: DataContainer<Comic> = try httpClient.sendRequest(endpoint: ComicEndpoint.comics)
+        let comicsResponse: DataContainer<Comic> = try await httpClient.sendRequest(endpoint: ComicEndpoint.comics)
         return comicsResponse.results
     }
 

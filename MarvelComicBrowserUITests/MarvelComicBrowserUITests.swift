@@ -3,7 +3,7 @@
 //  MarvelComicBrowserUITests
 //
 //  Created by Deric Kramer on 9/28/15.
-//  Copyright © 2015 ToolWatch. All rights reserved.
+//  Copyright © 2015 SingletonConsulting. All rights reserved.
 //
 
 import XCTest

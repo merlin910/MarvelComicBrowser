@@ -1,6 +1,6 @@
 //
 // Created by Deric Kramer on 7/19/22.
-// Copyright (c) 2022 ToolWatch. All rights reserved.
+// Copyright (c) 2022 SingletonConsulting. All rights reserved.
 //
 
 import Foundation
@@ -21,21 +21,25 @@ extension Endpoint {
 
     var asURLRequest: URLRequest {
         get throws {
-            let urlString = endpoint.baseURL + endpoint.path
-            guard let urlComponents = URLComponents(string: urlString) else {
+            let urlString = baseURL + path
+            guard var urlComponents = URLComponents(string: urlString) else {
                 throw RequestError.invalidURL
             }
-            urlComponents.queryItems = endpoint.queryParameters.map {
-                URLQueryItem(name: $0, value: $1)
+            urlComponents.queryItems = queryParameters?.map { key, value in
+                URLQueryItem(name: key, value: value)
             }
 
-            var request = URLRequest(url: urlComponents.url)
-            request.httpMethod = endpoint.method.rawValue
-            request.allHTTPHeaderFields = endpoint.header
+            guard let url = urlComponents.url else {
+                throw RequestError.invalidURL
+            }
+            var request = URLRequest(url: url)
+            request.httpMethod = method.rawValue
+            request.allHTTPHeaderFields = header
 
-            if let body = endpoint.body {
+            if let body = body {
                 request.httpBody = try JSONSerialization.data(withJSONObject: body, options: [])
             }
+            return request
         }
     }
 }

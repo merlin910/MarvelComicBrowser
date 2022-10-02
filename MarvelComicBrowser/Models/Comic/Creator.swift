@@ -3,7 +3,7 @@
 //  MarvelComicBrowser
 //
 //  Created by Deric Kramer on 9/30/15.
-//  Copyright © 2015 ToolWatch. All rights reserved.
+//  Copyright © 2015 SingletonConsulting. All rights reserved.
 //
 
 import Foundation
