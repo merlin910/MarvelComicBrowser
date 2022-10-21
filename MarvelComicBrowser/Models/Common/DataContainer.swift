@@ -7,6 +7,9 @@
 //
 
 import Foundation
+struct DataWrapper<T: Codable>: Codable {
+    let data: DataContainer<T>
+}
 
 struct DataContainer<T: Codable>: Codable {
     var offset: Int

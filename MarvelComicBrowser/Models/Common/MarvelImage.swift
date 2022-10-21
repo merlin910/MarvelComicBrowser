@@ -33,6 +33,11 @@ struct MarvelImage: Codable {
     var path: String?
     var fileExtension: String?
 
+    enum CodingKeys: String, CodingKey {
+        case path = "path"
+        case fileExtension = "extension"
+    }
+
     func fullPath(size: ImageSizeEnum) -> String? {
         if let path = path, let fileExtension = fileExtension {
             return path + "/" + size.description + "." + fileExtension

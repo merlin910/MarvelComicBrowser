@@ -17,8 +17,8 @@ class ComicCollectionNetworkService {
     }
 
     func getComics() async throws -> [Comic] {
-        let comicsResponse: DataContainer<Comic> = try await httpClient.sendRequest(endpoint: ComicEndpoint.comics)
-        return comicsResponse.results
+        let comicsResponse: DataWrapper<Comic> = try await httpClient.sendRequest(endpoint: ComicEndpoint.comics)
+        return comicsResponse.data.results
     }
 
 //    func getComics(uri: String, completionHandler: (comics: [Comic]?) -> Void) {

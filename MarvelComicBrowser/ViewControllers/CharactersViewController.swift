@@ -8,32 +8,30 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class CharactersViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = [Character]()
+    var objects: [Character] = []
 //    var dataFetcher: DataIterator<Character>?
+    var characterService = CharacterService(httpClient: HTTPClientImplementation())
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        if let split = self.splitViewController {
-            let controllers = split.viewControllers
-            self.detailViewController = (controllers[controllers.count - 1] as! UINavigationController).topViewController as? DetailViewController
+        Task {
+            do {
+                objects = try await characterService.getCharacters()
+                print("Thread.isMainThread = \(Thread.isMainThread)")
+                tableView.reloadData()
+            } catch {
+                print("Error: -\(error)")
+            }
         }
-
-//        self.dataFetcher = DataContainerStack().getCharacterData(["offset": "0"])
-//        self.dataFetcher!.nextPage() { (pageOfData) -> Void in
-//            if let pageOfData = pageOfData {
-//                self.objects += pageOfData
-//                self.tableView.reloadData()
-//            }
-//        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
+//        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
         super.viewWillAppear(animated)
     }
 
@@ -42,20 +40,8 @@ class MasterViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Segues
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row]
-                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = object
-                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
-                controller.navigationItem.leftItemsSupplementBackButton = true
-            }
-        }
-    }
-
     // MARK: - Table View
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -70,8 +56,8 @@ class MasterViewController: UITableViewController {
         let object = objects[indexPath.row]
         cell.textLabel!.text = object.name
 
-        if let imageURL = object.thumbnail.fullPath(size: ImageSizeEnum.medium) {
-//            cell.imageView?.load(imageURL, placeholder: UIImage(named: "standard_medium"))
+        if let imageURL = object.thumbnail.fullPath(size: ImageSizeEnum.medium), let url = URL(string: imageURL) {
+            cell.imageView?.loadImage(imageURL: url) // TODO: need placeholder image.
         }
         return cell
     }

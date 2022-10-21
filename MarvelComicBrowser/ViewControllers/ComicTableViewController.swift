@@ -12,13 +12,21 @@ class ComicTableViewController: UITableViewController {
     var objects = [Comic]()
 //    var dataFetcher: DataIterator<Comic>?
     var comicService = ComicCollectionNetworkService(httpClient: HTTPClientImplementation())
+    var coreDataManager: CoreDataManager?
+    var imageLoader = ImageLoader()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        coreDataManager = CoreDataManager {
+//            print("manager ready")
+//        }
+
         Task {
             do {
                 objects = try await comicService.getComics()
+                print("Thread.isMainThread = \(Thread.isMainThread)")
+                tableView.reloadData()
             } catch {
                 print("Error: -\(error)")
             }
@@ -38,6 +46,7 @@ class ComicTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -46,14 +55,28 @@ class ComicTableViewController: UITableViewController {
         return objects.count
     }
 
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+
+        let object = objects[indexPath.row]
+        cell.textLabel!.text = object.title
+
+        if let imageURL = object.thumbnail?.fullPath(size: ImageSizeEnum.medium), let url = URL(string: imageURL) {
+            cell.imageView?.loadImage(imageURL: url)
+        }
+
+        return cell
+    }
+
 //    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) -> UITableViewCell {
+
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 //
 //        let object = objects[indexPath.row]
 //        cell.textLabel!.text = object.title
 //
 //        if let imageURL = object.thumbnail?.fullPath(size: ImageSizeEnum.medium) {
-////            cell.imageView?.load(imageURL, placeholder: UIImage(named: "standard_medium"))
+//            cell.imageView?.load(imageURL, placeholder: UIImage(named: "standard_medium"))
 //        }
 //        return cell
 //    }

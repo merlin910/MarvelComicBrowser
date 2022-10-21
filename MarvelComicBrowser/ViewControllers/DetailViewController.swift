@@ -62,26 +62,26 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let comicCount = detailItem?.comics.items.count {
-            return comicCount
-        } else {
+//        if let comicCount = detailItem?.comics.items.count {
+//            return comicCount
+//        } else {
             return 0
-        }
+//        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellIdentifier = "ComicCollectionCell"
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath as IndexPath) as! ComicCollectionViewCell
 
-        if let comicName = self.detailItem?.comics.items[indexPath.row].name {
-            cell.title.text = comicName
-        } else {
+//        if let comicName = self.detailItem?.comics.items[indexPath.row].name {
+//            cell.title.text = comicName
+//        } else {
             cell.title.text = "Unknown Title"
-        }
-
-        if let imageURL = self.comics[indexPath.row].thumbnail?.fullPath(size: ImageSizeEnum.medium) {
-//            cell.imageView?.load(imageURL, placeholder: UIImage(named: "standard_medium"))
-        }
+//        }
+//
+//        if let imageURL = self.comics[indexPath.row].thumbnail?.fullPath(size: ImageSizeEnum.medium) {
+////            cell.imageView?.load(imageURL, placeholder: UIImage(named: "standard_medium"))
+//        }
 
         return cell
     }

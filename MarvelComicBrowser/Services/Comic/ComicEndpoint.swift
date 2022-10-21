@@ -35,10 +35,33 @@ extension ComicEndpoint: Endpoint {
     }
 
     var body: [String: String]? {
-        [:]
+        nil
     }
 
     var queryParameters: [String: String]? {
-       ["ts":"1", "apikey":"d3cded808b5440849f6ec244d514e48a"]
+       ["ts":"1", "apikey":"d3cded808b5440849f6ec244d514e48a", "hash": "d76cd382191355ca3fc55105da55c1bc"]
+    }
+}
+
+struct Request: Endpoint {
+    let path: String
+    let method: HTTPMethod
+    let header: [String: String]?
+    let body: [String: String]?
+    var queryParameters: [String: String]?
+
+    init(path: String, method: HTTPMethod, header: [String: String]?, body: [String: String]?, queryParameters: [String: String]?) {
+        self.path = path
+        self.method = method
+        self.header = header
+        self.body = body
+
+        var updatedParameters = ["ts": "1", "apikey": "d3cded808b5440849f6ec244d514e48a", "hash": "d76cd382191355ca3fc55105da55c1bc"]
+        if let queryParameters {
+            for (key, value) in queryParameters {
+                updatedParameters[key] = value
+            }
+        }
+        self.queryParameters = updatedParameters
     }
 }
